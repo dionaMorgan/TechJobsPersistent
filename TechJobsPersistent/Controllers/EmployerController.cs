@@ -14,7 +14,7 @@ namespace TechJobsPersistent.Controllers
 {
     public class EmployerController : Controller
     {
-        private JobDbContext context;
+        private JobDbContext context; //Set up a private DbContext variable so you can perform CRUD operations on the database
 
         public EmployerController(JobDbContext dbContext)
         {
@@ -22,11 +22,11 @@ namespace TechJobsPersistent.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index() //passes all of the Employer objects in the database to the view
         {
             List<Employer> employer = context.Employers.ToList();
 
-            return View();
+            return View(employer);
         }
 
         public IActionResult Add()
@@ -38,7 +38,7 @@ namespace TechJobsPersistent.Controllers
 
         public IActionResult ProcessAddEmployerForm(AddEmployerViewModel addEmployerViewModel)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid)  //make sure that only valid Employer objects are being saved to the database
             {
                 Employer newEmployer = new Employer
                 {
@@ -52,12 +52,14 @@ namespace TechJobsPersistent.Controllers
                 return Redirect("/Employer");
             }
 
-            return View();
+            return View("Add", addEmployerViewModel);
         }
 
-        public IActionResult About(int id)
+
+        public IActionResult About(int id) //information about the employer
         {
-            return View();
+            Employer newEmployer = context.Employers.Find(id);
+            return View(newEmployer);
         }
     }
 }

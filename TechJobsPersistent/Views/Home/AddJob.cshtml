@@ -7,6 +7,17 @@
         <span></span>
     </div>
 
-    <input type="submit" value="Add Job" />
+    <div class="form-group">
+        <label>EmployerId</label>
+        <input class="form-control" />
+        <span></span>
+        <select asp-items="Model.Employers"></select>
+    </div>
+
+        <input type="submit" value="Add Job" />
 </form>
+
+<div>
+    <a asp-controller="Employer" asp-action="Add">Add New Employer</a>
+</div>
 
