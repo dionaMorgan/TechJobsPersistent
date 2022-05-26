@@ -47,7 +47,7 @@ namespace TechJobsPersistent.Controllers
                     EmployerId = addJobViewModel.EmployerId,
                     Employer = context.Employers.Find(addJobViewModel.EmployerId)
 
-            };
+                };
 
                 context.Jobs.Add(newJob);
                 context.SaveChanges();
