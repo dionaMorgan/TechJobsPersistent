@@ -11,14 +11,14 @@ namespace TechJobsPersistent.ViewModels
 
         public int EmployerId { get; set; }
 
-        public List<SelectListItem> Employers { get; set; }
+        public List<SelectListItem> Employers { get; set; } //SelectListItems is a class that is used to display items in a drop down menu
 
         public List<Skill> Skills { get; set; }
 
 
         public AddJobViewModel(List<Employer> employers, List<Skill> skills)
         {
-            Employers = new List<SelectListItem>();
+            Employers = new List<SelectListItem>(); //can be interacted with the select element
             Skills = skills;
 
             foreach (var employer in employers)
