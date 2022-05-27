@@ -16,6 +16,7 @@
     <div class="form-group">
         @foreach (var skill in Model.Skills)
         {
+            <label>Skills:</label>
             <label for="@skill.Id">@skill.Name</label>
             <input type="checkbox" name="selectedSkills" value="@skill.Id" />
             
