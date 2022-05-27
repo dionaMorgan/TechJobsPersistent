@@ -13,7 +13,14 @@
         <select asp-items="@Model.Employers"></select>
     </div>
 
-        <input type="submit" value="Add Job" />
+    <div class="form-group">
+        <label>Selected Skills</label>
+        <span></span>
+        <select asp-items="@Model.Skills"></select>
+        <input type="checkbox" name="selectedSkills" />
+    </div>
+
+    <input type="submit" value="Add Job" />
 </form>
 
 <div>
